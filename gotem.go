@@ -53,3 +53,5 @@ func PressKey(key uintptr, isUp bool) {
 	proc.Call(key, 0, dwFlags, 0)
 }
 
+// for some reason I need a main even if it's a library?
+func main() {}
