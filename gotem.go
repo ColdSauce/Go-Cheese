@@ -1,4 +1,4 @@
-package main
+package Gotem
 import (
 	"syscall"
 	"unsafe"
