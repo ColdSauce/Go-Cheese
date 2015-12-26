@@ -1,5 +1,212 @@
 package Gotem
+import (
+	"errors"
+	"fmt"
+)
 type Key int
+
+func GetCorrectKeyCode(keyName string) (Key, error) {
+	switch(keyName){
+	case "LeftButton": return LeftButton, nil
+	case "RightButton": return RightButton, nil
+	case "Cancel": return Cancel, nil
+	case "MiddleButton": return MiddleButton, nil
+	case "ExtraButton1": return ExtraButton1, nil
+	case "ExtraButton2": return ExtraButton2, nil
+	case "Back": return Back, nil
+	case "Tab": return Tab, nil
+	case "Clear": return Clear, nil
+	case "Return": return Return, nil@
+	case "Shift": return Shift, nil
+	case "Control": return Control, nil
+	case "Menu": return Menu, nil
+	case "Pause": return Pause, nil
+	case "CapsLock": return CapsLock, nil
+	case "Kana": return Kana, nil
+	case "Hangeul": return Hangeul, nil
+	case "Hangul": return Hangul, nil
+	case "Junja": return Junja, nil
+	case "Final": return Final, nil
+	case "Hanja": return Hanja, nil
+	case "Kanji": return Kanji, nil
+	case "Escape": return Escape, nil
+	case "Convert": return Convert, nil
+	case "NonConvert": return NonConvert, nil
+	case "Accept": return Accept, nil
+	case "ModeChange": return ModeChange, nil
+	case "Space": return Space, nil
+	case "Prior": return Prior, nil
+	case "Next": return Next, nil
+	case "End": return End, nil
+	case "Home": return Home, nil
+	case "Left": return Left, nil
+	case "Up": return Up, nil
+	case "Right": return Right, nil
+	case "Down": return Down, nil
+	case "Select": return Select, nil
+	case "Print": return Print, nil
+	case "Execute": return Execute, nil
+	case "Snapshot": return Snapshot, nil
+	case "Insert": return Insert, nil
+	case "Delete": return Delete, nil
+	case "Help": return Help, nil
+	case "N0": return N0, nil
+	case "N1": return N1, nil
+	case "N2": return N2, nil
+	case "N3": return N3, nil
+	case "N4": return N4, nil
+	case "N5": return N5, nil
+	case "N6": return N6, nil
+	case "N7": return N7, nil
+	case "N8": return N8, nil
+	case "N9": return N9, nil
+	case "A": return A, nil
+	case "B": return B, nil
+	case "C": return C, nil
+	case "D": return D, nil
+	case "E": return E, nil
+	case "F": return F, nil
+	case "G": return G, nil
+	case "H": return H, nil
+	case "I": return I, nil
+	case "J": return J, nil
+	case "K": return K, nil
+	case "L": return L, nil
+	case "M": return M, nil
+	case "N": return N, nil
+	case "O": return O, nil
+	case "P": return P, nil
+	case "Q": return Q, nil
+	case "R": return R, nil
+	case "S": return S, nil
+	case "T": return T, nil
+	case "U": return U, nil
+	case "V": return V, nil
+	case "W": return W, nil
+	case "X": return X, nil
+	case "Y": return Y, nil
+	case "Z": return Z, nil
+	case "LeftWindows": return LeftWindows, nil
+	case "RightWindows": return RightWindows, nil
+	case "Application": return Application, nil
+	case "Sleep": return Sleep, nil
+	case "Numpad0": return Numpad0, nil
+	case "Numpad1": return Numpad1, nil
+	case "case" case : return"Numpad2, nil
+	case "Numpad3": return Numpad3, nil
+	case "Numpad4": return Numpad4, nil
+	case "Numpad5": return Numpad5, nil
+	case "Numpad6": return Numpad6, nil
+	case "Numpad7": return Numpad7, nil
+	case "Numpad8": return Numpad8, nil
+	case "Numpad9": return Numpad9, nil
+	case "Multiply": return Multiply, nil
+	case "Add": return Add, nil
+	case "Separator": return Separator, nil
+	case "Subtract": return Subtract, nil
+	case "Decimal": return Decimal, nil
+	case "Divide": return Divide, nil
+	case "F1": return F1, nil
+	case "F2": return F2, nil
+	case "F3": return F3, nil
+	case "F4": return F4, nil
+	case "F5": return F5, nil
+	case "F6": return F6, nil
+	case "F7": return F7, nil
+	case "F8": return F8, nil
+	case "F9": return F9, nil
+	case "F10": return F10, nil
+	case "F11": return F11, nil
+	case "F12": return F12, nil
+	case "F13": return F13, nil
+	case "F14": return F14, nil
+	case "F15": return F15, nil
+	case "F16": return F16, nil
+	case "F17": return F17, nil
+	case "F18": return F18, nil
+	case "F19": return F19, nil
+	case "F20": return F20, nil
+	case "F21": return F21, nil
+	case "F22": return F22, nil
+	case "F23": return F23, nil
+	case "F24": return F24, nil
+	case "NumLock": return NumLock, nil
+	case "ScrollLock": return ScrollLock, nil
+	case "NEC_Equal": return NEC_Equal, nil
+	case "Fujitsu_Jisho": return Fujitsu_Jisho, nil
+	case "Fujitsu_Masshou": return Fujitsu_Masshou, nil
+	case "Fujitsu_Touroku": return Fujitsu_Touroku, nil
+	case "Fujitsu_Loya": return Fujitsu_Loya, nil
+	case "Fujitsu_Roya": return Fujitsu_Roya, nil
+	case "LeftShift": return LeftShift, nil
+	case "RightShift": return RightShift, nil
+	case "LeftControl": return LeftControl, nil
+	case "RightControl": return RightControl, nil
+	case "LeftMenu": return LeftMenu, nil
+	case "RightMenu": return RightMenu, nil
+	case "BrowserBack": return BrowserBack, nil
+	case "BrowserForward": return BrowserForward, nil
+	case "BrowserRefresh": return BrowserRefresh, nil
+	case "BrowserStop": return BrowserStop, nil
+	case "BrowserSearch": return BrowserSearch, nil
+	case "BrowserFavorites": return BrowserFavorites, nil
+	case "BrowserHome": return BrowserHome, nil
+	case "VolumeMute": return VolumeMute, nil
+	case "VolumeDown": return VolumeDown, nil
+	case "VolumeUp": return VolumeUp, nil
+	case "MediaNextTrack": return MediaNextTrack, nil
+	case "MediaPrevTrack": return MediaPrevTrack, nil
+	case "MediaStop": return MediaStop, nil
+	case "MediaPlayPause": return MediaPlayPause, nil
+	case "LaunchMail": return LaunchMail, nil
+	case "LaunchMediaSelect": return LaunchMediaSelect, nil
+	case "LaunchApplication1": return LaunchApplication1, nil
+	case "LaunchApplication2": return LaunchApplication2, nil
+	case "OEM1": return OEM1, nil
+	case "OEMPlus": return OEMPlus, nil
+	case "OEMComma": return OEMComma, nil
+	case "OEMMinus": return OEMMinus, nil
+	case "OEMPeriod": return OEMPeriod, nil
+	case "OEM2": return OEM2, nil
+	case "OEM3": return OEM3, nil
+	case "OEM4": return OEM4, nil
+	case "OEM5": return OEM5, nil
+	case "OEM6": return OEM6, nil
+	case "OEM7": return OEM7, nil
+	case "OEM8": return OEM8, nil
+	case "OEMAX": return OEMAX, nil
+	case "OEM102": return OEM102, nil
+	case "ICOHelp": return ICOHelp, nil
+	case "ICO00": return ICO00, nil
+	case "ProcessKey": return ProcessKey, nil
+	case "ICOClear": return ICOClear, nil
+	case "Packet": return Packet, nil
+	case "OEMReset": return OEMReset, nil
+	case "OEMJump": return OEMJump, nil
+	case "OEMPA1": return OEMPA1, nil
+	case "OEMPA2": return OEMPA2, nil
+	case "OEMPA3": return OEMPA3, nil
+	case "OEMWSCtrl": return OEMWSCtrl, nil
+	case "OEMCUSel": return OEMCUSel, nil
+	case "OEMATTN": return OEMATTN, nil
+	case "OEMFinish": return OEMFinish, nil
+	case "OEMCopy": return OEMCopy, nil
+	case "OEMAuto": return OEMAuto, nil
+	case "OEMENLW": return OEMENLW, nil
+	case "OEMBackTab": return OEMBackTab, nil
+	case "ATTN": return ATTN, nil
+	case "CRSel": return CRSel, nil
+	case "EXSel": return EXSel, nil
+	case "EREOF": return EREOF, nil
+	case "Play": return Play, nil
+	case "Zoom": return Zoom, nil
+	case "Noname": return Noname, nil
+	case "PA1": return PA1, nil
+	case "OEMClear": return OEMClear, nil
+	}
+	errorMessage := fmt.Sprintf("Entered incorrect key code! Check from the list and try again. Key code entered: %s", keyName)
+	return nil, errors.New(errorMessage)
+}
 
 const (
 	LeftButton Key = 0x01
@@ -199,3 +406,6 @@ const (
 	PA1 Key = 0xFD
 	OEMClear Key = 0xFE
 )
+
+
+
