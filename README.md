@@ -1,5 +1,5 @@
-# Got'em
-Got'em is a Go library that provides convenient functions to control the mouse and the keyboard. (Similar to Java's Robot)
+# Go Cheese
+Go Cheese is a Go library that provides convenient functions to control the mouse and the keyboard. (Similar to Java's Robot)
 
 It's currently extremely limited and is not ready to be used in any sort of serious setting.
 
