@@ -7,15 +7,18 @@ import "C"
 
 var( dpy = C.XOpenDisplay(nil))
 
-func MoveMouseTo(p Point) {
+// MoveMouseTo (X Window System version) moves the user's mouse to a specified point on the screen.
+func MoveMouseTo(p Point) error{
 	// TODO: Implement this.
 }
 
-func GetMousePosition() Point {
+// GetMousePosition (X Window System version) returns a Point indicating where the cursor is located on the screen.
+func GetMousePosition() (Point, error){
 	// TODO: Implement this.
 	return Point{0, 0}
 }
 
-func PressKey(key uintptr, isUp bool) {
+// PressKey (X Window System version) simulates a key press.
+func PressKey(key uintptr, isUp bool) error {
 	// TODO: Implement this.
 }

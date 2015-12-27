@@ -1,3 +1,4 @@
+// Package Gotem implements a simple library for programatically controlling one's keyboard and mouse.
 package Gotem
 
 import (
@@ -13,6 +14,7 @@ var (
 	keybd_event                           = lazyDll.NewProc("keybd_event")
 )
 
+// MoveMouseTo (Windows version) moves the user's mouse to a specified point on the screen.
 func MoveMouseTo(p Point) error {
 	ret, _, _ := setPhysicalCursorPos.Call(uintptr(p.X), uintptr(p.Y))
 	if ret != 0 {
@@ -20,11 +22,12 @@ func MoveMouseTo(p Point) error {
 	}
 }
 
+// GetMousePosition (Windows version) returns a Point indicating where the cursor is located on the screen.
 func GetMousePosition() (Point, error) {
 	type mousePosition struct {
 		x, y int32
 	}
-	var ran mosPoint
+	var ran mousePosition
 	ret, _, _ := getPhysicalCursorPos.Call(uintptr(unsafe.Pointer(&ran)))
 	if ret != 0 {
 		return errors.New("Couldn't get cursor position.")
@@ -32,7 +35,8 @@ func GetMousePosition() (Point, error) {
 	return Point{int(ran.x), int(ran.y)}, nil
 }
 
-func PressKey(key uintptr, isUp bool) error {
+// PressKey (Windows version) simulates a key press.
+func PressKey(key Key, isUp bool) error {
 	var dwFlags uintptr
 
 	if isUp {
