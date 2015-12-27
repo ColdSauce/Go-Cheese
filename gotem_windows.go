@@ -44,6 +44,7 @@ func PressKey(key Key, isUp bool) error {
 	} else {
 		dwFlags = 0x0
 	}
+	// TODO: Change this to SendInput instead of keybd_event
 	ret, _, _ := keybd_event.Call(key, 0, dwFlags, 0)
 	if ret != 0 {
 		return errors.New("Couldn't press key!.")

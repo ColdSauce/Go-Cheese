@@ -3,8 +3,8 @@ import (
 	"errors"
 	"fmt"
 )
-type Key int
 
+// GetCorrectKeyCode (Windows version) gets a key code from a string that's the name of the key.
 func GetCorrectKeyCode(keyName string) (Key, error) {
 	switch(keyName){
 	case "LeftButton": return LeftButton, nil
@@ -208,6 +208,7 @@ func GetCorrectKeyCode(keyName string) (Key, error) {
 	return nil, errors.New(errorMessage)
 }
 
+// These are the Virtual Key Codes that MSDN specifies.
 const (
 	LeftButton Key = 0x01
 	RightButton Key = 0x02
@@ -406,6 +407,3 @@ const (
 	PA1 Key = 0xFD
 	OEMClear Key = 0xFE
 )
-
-
-
