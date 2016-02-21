@@ -1,10 +1,7 @@
 # Go Cheese
 Go Cheese is a Go library that provides convenient functions to control the mouse and the keyboard. (Similar to Java's Robot)
 
-It's currently extremely limited and is not ready to be used in any sort of serious setting.
-
-The goal of this library is to be able to be used in as many operating systems as possible. Currently the following are the only ones that are supported:
-- Windows
+The Windows version works, to my knowledge, perfectly.
 
 There is currently development being done to get this library working with the X Window System. 
 

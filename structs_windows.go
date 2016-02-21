@@ -3,6 +3,18 @@ import (
 	"errors"
 	"fmt"
 )
+type Input struct {
+	type_ uint32
+	ki    Keybdinput
+}
+
+type Keybdinput struct {
+	wVk         uint16
+	wScan       uint16
+	dwFlags     uint32
+	time        uint32
+	dwExtraInfo uintptr
+}
 
 // GetCorrectKeyCode (Windows version) gets a key code from a string that's the name of the key.
 func GetCorrectKeyCode(keyName string) (Key, error) {
@@ -16,7 +28,7 @@ func GetCorrectKeyCode(keyName string) (Key, error) {
 	case "Back": return Back, nil
 	case "Tab": return Tab, nil
 	case "Clear": return Clear, nil
-	case "Return": return Return, nil@
+	case "Return": return Return, nil
 	case "Shift": return Shift, nil
 	case "Control": return Control, nil
 	case "Menu": return Menu, nil
@@ -92,7 +104,7 @@ func GetCorrectKeyCode(keyName string) (Key, error) {
 	case "Sleep": return Sleep, nil
 	case "Numpad0": return Numpad0, nil
 	case "Numpad1": return Numpad1, nil
-	case "case" case : return"Numpad2, nil
+	case "Numpad2": return Numpad2, nil
 	case "Numpad3": return Numpad3, nil
 	case "Numpad4": return Numpad4, nil
 	case "Numpad5": return Numpad5, nil
@@ -205,7 +217,7 @@ func GetCorrectKeyCode(keyName string) (Key, error) {
 	case "OEMClear": return OEMClear, nil
 	}
 	errorMessage := fmt.Sprintf("Entered incorrect key code! Check from the list and try again. Key code entered: %s", keyName)
-	return nil, errors.New(errorMessage)
+	return -1, errors.New(errorMessage)
 }
 
 // These are the Virtual Key Codes that MSDN specifies.
@@ -406,4 +418,7 @@ const (
 	Noname Key = 0xFC
 	PA1 Key = 0xFD
 	OEMClear Key = 0xFE
+)
+const (
+	KEYBOARD_INPUT = 1
 )
