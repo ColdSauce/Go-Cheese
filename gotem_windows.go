@@ -16,7 +16,7 @@ var (
 
 // MoveMouseTo (Windows version) moves the user's mouse to a specified point on the screen.
 func MoveMouseTo(p *Point) error {
-	ret, _, _ := setPhysicalCursorPos.Call(uintptr(unsafe.Pointer(&p.X)), uintptr(unsafe.Pointer(&p.Y)))
+	ret, _, _ := setPhysicalCursorPos.Call(uintptr(p.X), uintptr(p.Y))
 	if ret == 0 {
 		return errors.New("Couldn't set cursor position.")
 	} else {
